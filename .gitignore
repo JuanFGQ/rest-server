@@ -3,3 +3,10 @@
 node_modules/
 
 .env
+
+uploads/productos/**.*
+uploads/usuarios/**.*
+
+
+//no subir las imagenes de productos, solo assets
+

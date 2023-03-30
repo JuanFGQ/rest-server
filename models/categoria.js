@@ -23,5 +23,12 @@ const CategoriaSchema = Schema({
    
 });
 
+//esto funciona para excluir del resultado ciertos datos que no me interecen //179
+CategoriaSchema.methods.toJSON = function() {
+    const {__v ,estado ,...data  } = this.toObject();
+    
+    return data;
+}
+
 
 module.exports = model( 'Categoria', CategoriaSchema );

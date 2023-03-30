@@ -44,7 +44,9 @@ const usuariosPost = async(req, res = response) => {
 const usuariosPut = async(req, res = response) => {
 
     const { id } = req.params;
-    const { _id, password, google, correo, ...resto } = req.body;
+    const { _id, password, google, correo, /* A way to get all the properties of an object except the
+    ones you specify. */
+    ...resto } = req.body;
 
     if ( password ) {
         // Encriptar la contraseña

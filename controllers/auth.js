@@ -5,7 +5,6 @@ const Usuario = require('../models/usuario');
 
 const { generarJWT } = require('../helpers/generar-jwt');
 const { googleVerify } = require('../helpers/google-verify');
-const { DefaultTransporter } = require('google-auth-library');
 
 
 const login = async(req, res = response) => {
@@ -105,10 +104,30 @@ const googleSignin = async(req, res = response) => {
 
 
 }
+//*241
+
+// validar y renovar JWT
+const renovarToken =async (req,res =response)=>{
+
+    //traer el usuario del request
+   const {usuario} = req;
+
+   //Generar el JWT
+
+   const token = await generarJWT(usuario.id)
+
+
+   
+   res.json({
+    usuario,
+    token
+   })
+}
 
 
 
 module.exports = {
     login,
-    googleSignin
+    googleSignin,
+    renovarToken
 }
